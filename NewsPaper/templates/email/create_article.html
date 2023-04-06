@@ -1,0 +1,20 @@
+{% extends 'flatpages/default.html' %}
+ 
+{% load custom_filters %}
+
+{% block title %}
+News
+{% endblock title %}
+
+
+
+{% block content %}
+ 
+    {% for block in article %}
+        <h1>{{ block.name|censor }}</h1>
+        <h2>{{ block.dateCreation }}</h2>
+        <p>{{ block.post|truncatechars:50|censor }}</p>
+        <a href="{% url 'article_detail' block.id %}">Подробнее</a>
+    {% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'flatpages/default.html' %}
+ 
+{% load custom_filters %}
+
+{% block title %}
+Delete News
+{% endblock title %}
+ 
+{% block content %}
+<h2>Вы действительно хотите удалить данную стаью?</h2>
+ 
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="подтвердить"></form>
+{% endblock content %} 

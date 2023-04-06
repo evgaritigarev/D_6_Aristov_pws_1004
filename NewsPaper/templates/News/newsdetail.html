@@ -1,0 +1,17 @@
+{% extends 'flatpages/default.html' %}
+ 
+{% load custom_filters %}
+
+{% block title %}
+News
+{% endblock title %}
+
+{% block content %}
+    <h1>{{ article.name|censor }}</h1>
+    <h2>{{ article.dateCreation|date:'d-M-Y H:i' }}</h2>
+    <p>{{ article.post|censor }}</p>
+    <hr>
+    <a href="{% url 'article_update' article.id %}">Редактировать новость</a>
+    <hr>
+    <a href="{% url 'article_delete' article.id %}">Удалить новость</a>
+{% endblock content %}
